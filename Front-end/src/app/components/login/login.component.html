@@ -1,0 +1,36 @@
+<div class="lowin">
+  <div class="lowin-brand">
+    <img src="/assets/logo.png" alt="logo">
+  </div>
+  <div class="lowin-wrapper" style="min-height: 456px;">
+    <div class="lowin-box lowin-login">
+      <div class="lowin-box-inner">
+        <form name="form-signin" (ngSubmit)="f.form.valid && login()" #f="ngForm" novalidate>
+          <p>Sign in to continue</p>
+          <div class="alert alert-danger" role="alert" *ngIf="errorMessage">{{errorMessage}}</div>
+          <span id="reauth-email" class="reauth-email"></span>
+          <div class="form-group lowin-group" [ngClass]="{ 'has-error': f.submitted && !username.valid }">
+            <label>Email <a href="#" class="login-back-link">Sign in?</a></label>
+            <input type="text" class="form-control lowin-input" id="username" name="username" pattern="[^ @]*@[^ @]*"
+              [(ngModel)]="user.username" #username="ngModel" required />
+            <div *ngIf="f.submitted && !username.valid" class="help-block">an valid email is required</div>
+          </div>
+
+          <div class="form-group lowin-group password-group" [ngClass]="{ 'has-error': f.submitted && !password.valid }">
+            <label>Password</label>
+            <input type="password" class="form-control lowin-input" id="password" name="password" [(ngModel)]="user.password"
+              #password="ngModel" required />
+            <div *ngIf="f.submitted && !password.valid" class="help-block">Password is required</div>
+          </div>
+          <button class="lowin-btn login-btn" type="submit">
+            Sign In
+          </button>
+
+          <div class="text-foot">
+            Don't have an account? <a [routerLink]="['/register']" class="register-link">Register</a>
+          </div>
+        </form>
+      </div>
+    </div>
+
+  </div>
