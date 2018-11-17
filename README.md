@@ -10,7 +10,8 @@ This project is based on the [Spring Boot](http://projects.spring.io/spring-boot
 - Spring Data (jpa/Hibernate & MySQL)
 - Spring security
 - Spring MVC (Tomcat)
-- Anular 7
+- Angular 7
+- MySql
 
 ## Functional spec
 
